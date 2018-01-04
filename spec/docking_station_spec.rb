@@ -13,7 +13,7 @@ describe DockingStation do
 
    it 'does not dock a bike if no capacity' do
     docking_station = DockingStation.new
-    docking_station.bikes << 1
+    (docking_station.bikes << Array.new(docking_station.capacity)).flatten!
     expect{docking_station.dock}.to raise_error
  end
 
