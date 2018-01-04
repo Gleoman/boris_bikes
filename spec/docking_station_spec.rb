@@ -13,18 +13,18 @@ describe DockingStation do
 
    it 'does not dock a bike if no capacity' do
     docking_station = DockingStation.new
-    docking_station.bike << 1
+    docking_station.bikes << 1
     expect{docking_station.dock}.to raise_error
  end
 
  context '.release_bike' do
    it 'returns error when no bikes available' do
      docking_station = DockingStation.new
-     expect{docking_station.release_bike}.to raise_error
+     expect{docking_station.release_bikes}.to raise_error
    end
  end
 
- it { is_expected.to respond_to(:bike)}
+ it { is_expected.to respond_to(:bikes)}
 
 end
 end

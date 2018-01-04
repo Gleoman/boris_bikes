@@ -1,23 +1,23 @@
 require './lib/bike'
 class DockingStation
-  attr_reader :bike, :capacity
+  attr_reader :bikes, :capacity
 
   def initialize(capacity = 1)
-    @bike = []
+    @bikes = []
     @capacity = capacity
   end
 
   def release_bike
-     if @bike.empty?
+     if @bikes.empty?
        raise "No bikes"
      else
-       @bike.pop
+       @bikes.pop
      end
   end
 
   def dock
-    if @bike.length < @capacity
-      @bike << Bike.new
+    if @bikes.length < @capacity
+      @bikes << Bike.new
     else
       raise "No capacity"
     end
