@@ -12,6 +12,13 @@ describe DockingStation do
    end
  end
 
+ context '.release_bike' do
+   it 'returns error when no bikes available' do
+     docking_station = DockingStation.new
+     expect{docking_station.release_bike}.to raise_error
+   end
+ end
+
  it { is_expected.to respond_to(:bike)}
 
 end
