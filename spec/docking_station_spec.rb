@@ -5,11 +5,16 @@ require 'docking_station'
 describe DockingStation do
  it { is_expected.to respond_to :release_bike }
  context '.dock' do
-   it 'docks a bike' do
-     docking_station = DockingStation.new
-     bike = docking_station.release_bike
-     expect(docking_station.dock(bike)).to eq bike
-   end
+  #  it 'docks a bike' do
+    #  docking_station = DockingStation.new
+  #    bike = docking_station.release_bike
+  #    expect(docking_station.dock).to eq bike
+  #  end
+
+   it 'does not dock a bike if no capacity' do
+    docking_station = DockingStation.new
+    docking_station.bike << 1
+    expect{docking_station.dock}.to raise_error
  end
 
  context '.release_bike' do
@@ -22,5 +27,4 @@ describe DockingStation do
  it { is_expected.to respond_to(:bike)}
 
 end
-
-#git commit purposes
+end

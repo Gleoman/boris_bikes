@@ -1,21 +1,25 @@
 require './lib/bike'
 class DockingStation
-  attr_reader :bike
+  attr_reader :bike, :capacity
 
-  def initialize()
+  def initialize(capacity = 1)
     @bike = []
+    @capacity = capacity
   end
 
   def release_bike
      if @bike.empty?
-       raise "ArgumentError"
+       raise "No bikes"
      else
        @bike.pop
      end
   end
 
-  def dock(bike)
-    @bike << bike
+  def dock
+    if @bike.length < @capacity
+      @bike << Bike.new
+    else
+      raise "No capacity"
+    end
   end
-
 end
