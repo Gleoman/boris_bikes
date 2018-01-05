@@ -7,12 +7,12 @@ describe DockingStation do
  context '.dock' do
    it 'docks a working bike' do
      docking_station = DockingStation.new
-     bike = Bike.new
+     bike = double(:bike)
      expect(docking_station.dock(bike)).to eq [bike]
    end
 
    it 'docks a broken bike' do
-     bike = Bike.new
+     bike = double(:bike)
      bike.report_broken
      expect(subject.dock(bike)).to eq [bike]
    end
@@ -42,7 +42,7 @@ end
 
  context 'when bike for release is broken' do
    it 'returns error' do
-     bike = Bike.new
+     bike = double(:bike)
      bike.report_broken
      subject.dock(bike)
      expect{subject.release_bike}.to raise_error("Bike is broken")
