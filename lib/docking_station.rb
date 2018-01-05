@@ -16,17 +16,17 @@ class DockingStation
       end
   end
 
-  def dock
+  def dock(bike)
     if full?
        raise "No capacity"
      else
-       @bikes << Bike.new
+       @bikes << bike
      end
   end
 
 private
   def bike_availibility
-    @bike.empty?
+    @bikes.empty?
   end
 
 private
